@@ -16,9 +16,9 @@ struct MainScreen: View {
                     Label("Home", systemImage: "house")
                 }
 
-            Text("Tab 2") // Placeholder for another tab
+            MarkGymLocationView()
                 .tabItem {
-                    Label("Tab 2", systemImage: "square.grid.2x2")
+                    Label("Mark Gym", systemImage: "mappin.and.ellipse")
                 }
 
             Text("Tab 3") // Placeholder for another tab
