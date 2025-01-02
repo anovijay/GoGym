@@ -20,6 +20,8 @@
 		ECECAC032D2729D400021895 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABF22D2729D400021895 /* MapView.swift */; };
 		ECECAC042D2729D400021895 /* MarkGymLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABF32D2729D400021895 /* MarkGymLocationView.swift */; };
 		ECECAC062D2729D400021895 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABF52D2729D400021895 /* SettingsView.swift */; };
+		ECECAC0E2D27399F00021895 /* GymLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECAC0D2D27399700021895 /* GymLocationViewModel.swift */; };
+		ECECAC102D2739E500021895 /* MapViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECAC0F2D2739CA00021895 /* MapViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		ECECABF22D2729D400021895 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		ECECABF32D2729D400021895 /* MarkGymLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkGymLocationView.swift; sourceTree = "<group>"; };
 		ECECABF52D2729D400021895 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		ECECAC0D2D27399700021895 /* GymLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymLocationViewModel.swift; sourceTree = "<group>"; };
+		ECECAC0F2D2739CA00021895 /* MapViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -138,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				ECECABF32D2729D400021895 /* MarkGymLocationView.swift */,
+				ECECAC0D2D27399700021895 /* GymLocationViewModel.swift */,
+				ECECAC0F2D2739CA00021895 /* MapViewComponent.swift */,
 				ECECABF22D2729D400021895 /* MapView.swift */,
 			);
 			path = MarkGymLocation;
@@ -230,9 +236,11 @@
 				ECECABFB2D2729D400021895 /* AppDelegate.swift in Sources */,
 				ECECABFC2D2729D400021895 /* AuthState.swift in Sources */,
 				ECECABFD2D2729D400021895 /* AuthView.swift in Sources */,
+				ECECAC102D2739E500021895 /* MapViewComponent.swift in Sources */,
 				ECECAC002D2729D400021895 /* GoGymApp.swift in Sources */,
 				ECECAC012D2729D400021895 /* HomeView.swift in Sources */,
 				ECECAC032D2729D400021895 /* MapView.swift in Sources */,
+				ECECAC0E2D27399F00021895 /* GymLocationViewModel.swift in Sources */,
 				ECECAC042D2729D400021895 /* MarkGymLocationView.swift in Sources */,
 				ECECAC062D2729D400021895 /* SettingsView.swift in Sources */,
 			);

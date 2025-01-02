@@ -7,11 +7,14 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var authState: AuthState
+
     var body: some View {
         VStack {
-            Text("Welcome, User!") // Replace "User" with dynamic content if needed
+            Text("Welcome, \(authState.displayName ?? "User")!")
                 .font(.largeTitle)
                 .padding()
         }
     }
 }
+

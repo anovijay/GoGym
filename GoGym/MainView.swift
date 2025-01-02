@@ -11,7 +11,7 @@ struct MainScreen: View {
 
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(authState: authState)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
