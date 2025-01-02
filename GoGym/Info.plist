@@ -28,5 +28,9 @@
         <key>NSAllowsArbitraryLoads</key>
         <true/>
     </dict>
+
+    <!-- Required for requesting location permissions -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to mark your gym accurately.</string>
 </dict>
 </plist>
