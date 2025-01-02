@@ -6,13 +6,33 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		ECECABC52D26A5AF00021895 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC42D26A5AF00021895 /* GoogleSignIn */; };
+		ECECABC72D26A5AF00021895 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC62D26A5AF00021895 /* GoogleSignInSwift */; };
+		ECECABCA2D26A5F800021895 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC92D26A5F800021895 /* FirebaseAuth */; };
+		ECECABCC2D26A5F800021895 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABCB2D26A5F800021895 /* FirebaseCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		ECECABAC2D26A58000021895 /* GoGym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		ECECABD02D26A64400021895 /* Exceptions for "GoGym" folder in "GoGym" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = ECECABAB2D26A58000021895 /* GoGym */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		ECECABAE2D26A58000021895 /* GoGym */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				ECECABD02D26A64400021895 /* Exceptions for "GoGym" folder in "GoGym" target */,
+			);
 			path = GoGym;
 			sourceTree = "<group>";
 		};
@@ -23,6 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECECABC52D26A5AF00021895 /* GoogleSignIn in Frameworks */,
+				ECECABCA2D26A5F800021895 /* FirebaseAuth in Frameworks */,
+				ECECABCC2D26A5F800021895 /* FirebaseCore in Frameworks */,
+				ECECABC72D26A5AF00021895 /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +89,10 @@
 			);
 			name = GoGym;
 			packageProductDependencies = (
+				ECECABC42D26A5AF00021895 /* GoogleSignIn */,
+				ECECABC62D26A5AF00021895 /* GoogleSignInSwift */,
+				ECECABC92D26A5F800021895 /* FirebaseAuth */,
+				ECECABCB2D26A5F800021895 /* FirebaseCore */,
 			);
 			productName = GoGym;
 			productReference = ECECABAC2D26A58000021895 /* GoGym.app */;
@@ -94,6 +122,10 @@
 			);
 			mainGroup = ECECABA32D26A58000021895;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				ECECABC32D26A5AF00021895 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				ECECABC82D26A5F800021895 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = ECECABAD2D26A58000021895 /* Products */;
 			projectDirPath = "";
@@ -252,6 +284,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoGym/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -262,7 +295,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
@@ -291,6 +324,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoGym/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -301,7 +335,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
@@ -339,6 +373,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ECECABC32D26A5AF00021895 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		ECECABC82D26A5F800021895 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECECABC42D26A5AF00021895 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECECABC32D26A5AF00021895 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		ECECABC62D26A5AF00021895 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECECABC32D26A5AF00021895 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		ECECABC92D26A5F800021895 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECECABC82D26A5F800021895 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		ECECABCB2D26A5F800021895 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECECABC82D26A5F800021895 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ECECABA42D26A58000021895 /* Project object */;
 }

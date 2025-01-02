@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseCore
 
 @main
 struct GoGymApp: App {
-    let persistenceController = PersistenceController.shared
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    @StateObject private var authState = AuthState()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            MainScreen(authState: authState) // Always starts with the main screen
         }
     }
 }
