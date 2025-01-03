@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC1C48472D283D1B00ACF22C /* MapInteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C48462D283D1300ACF22C /* MapInteractionManager.swift */; };
 		ECECABC52D26A5AF00021895 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC42D26A5AF00021895 /* GoogleSignIn */; };
 		ECECABC72D26A5AF00021895 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC62D26A5AF00021895 /* GoogleSignInSwift */; };
 		ECECABCA2D26A5F800021895 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC92D26A5F800021895 /* FirebaseAuth */; };
@@ -17,7 +18,6 @@
 		ECECABFD2D2729D400021895 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABE92D2729D400021895 /* AuthView.swift */; };
 		ECECAC002D2729D400021895 /* GoGymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABED2D2729D400021895 /* GoGymApp.swift */; };
 		ECECAC012D2729D400021895 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABEF2D2729D400021895 /* HomeView.swift */; };
-		ECECAC032D2729D400021895 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABF22D2729D400021895 /* MapView.swift */; };
 		ECECAC042D2729D400021895 /* MarkGymLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABF32D2729D400021895 /* MarkGymLocationView.swift */; };
 		ECECAC062D2729D400021895 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABF52D2729D400021895 /* SettingsView.swift */; };
 		ECECAC0E2D27399F00021895 /* GymLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECAC0D2D27399700021895 /* GymLocationViewModel.swift */; };
@@ -25,13 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC1C48462D283D1300ACF22C /* MapInteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionManager.swift; sourceTree = "<group>"; };
 		ECECABAC2D26A58000021895 /* GoGym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECECABE62D2729D400021895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECECABE82D2729D400021895 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		ECECABE92D2729D400021895 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		ECECABED2D2729D400021895 /* GoGymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoGymApp.swift; sourceTree = "<group>"; };
 		ECECABEF2D2729D400021895 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		ECECABF22D2729D400021895 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		ECECABF32D2729D400021895 /* MarkGymLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkGymLocationView.swift; sourceTree = "<group>"; };
 		ECECABF52D2729D400021895 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		ECECAC0D2D27399700021895 /* GymLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymLocationViewModel.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 				ECECABF32D2729D400021895 /* MarkGymLocationView.swift */,
 				ECECAC0D2D27399700021895 /* GymLocationViewModel.swift */,
 				ECECAC0F2D2739CA00021895 /* MapViewComponent.swift */,
-				ECECABF22D2729D400021895 /* MapView.swift */,
+				EC1C48462D283D1300ACF22C /* MapInteractionManager.swift */,
 			);
 			path = MarkGymLocation;
 			sourceTree = "<group>";
@@ -238,8 +238,8 @@
 				ECECABFD2D2729D400021895 /* AuthView.swift in Sources */,
 				ECECAC102D2739E500021895 /* MapViewComponent.swift in Sources */,
 				ECECAC002D2729D400021895 /* GoGymApp.swift in Sources */,
+				EC1C48472D283D1B00ACF22C /* MapInteractionManager.swift in Sources */,
 				ECECAC012D2729D400021895 /* HomeView.swift in Sources */,
-				ECECAC032D2729D400021895 /* MapView.swift in Sources */,
 				ECECAC0E2D27399F00021895 /* GymLocationViewModel.swift in Sources */,
 				ECECAC042D2729D400021895 /* MarkGymLocationView.swift in Sources */,
 				ECECAC062D2729D400021895 /* SettingsView.swift in Sources */,

@@ -34,11 +34,21 @@ final class GymLocationViewModel: NSObject, ObservableObject, CLLocationManagerD
 
     private func setupLocationManager() {
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            switch locationManager.authorizationStatus {
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            case .authorizedWhenInUse, .authorizedAlways:
+                updateRegionToUserLocation()
+            case .denied, .restricted:
+                showLocationAlert = true
+            default:
+                break
+            }
         } else {
             showLocationAlert = true
         }
     }
+
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
