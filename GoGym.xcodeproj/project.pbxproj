@@ -7,35 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC1C48472D283D1B00ACF22C /* MapInteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C48462D283D1300ACF22C /* MapInteractionManager.swift */; };
+		EC4963252D2EA1E500C11694 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4963242D2EA1E000C11694 /* ErrorHandling.swift */; };
+		EC4963562D2EB24800C11694 /* GymLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4963552D2EB23F00C11694 /* GymLocationService.swift */; };
 		ECECABC52D26A5AF00021895 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC42D26A5AF00021895 /* GoogleSignIn */; };
 		ECECABC72D26A5AF00021895 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC62D26A5AF00021895 /* GoogleSignInSwift */; };
 		ECECABCA2D26A5F800021895 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC92D26A5F800021895 /* FirebaseAuth */; };
 		ECECABCC2D26A5F800021895 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABCB2D26A5F800021895 /* FirebaseCore */; };
 		ECECABE12D26DD7A00021895 /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABE02D26DD7A00021895 /* GoogleMaps */; };
 		ECECABFB2D2729D400021895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABE62D2729D400021895 /* AppDelegate.swift */; };
-		ECECABFC2D2729D400021895 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABE82D2729D400021895 /* AuthState.swift */; };
-		ECECABFD2D2729D400021895 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABE92D2729D400021895 /* AuthView.swift */; };
 		ECECAC002D2729D400021895 /* GoGymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABED2D2729D400021895 /* GoGymApp.swift */; };
 		ECECAC012D2729D400021895 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABEF2D2729D400021895 /* HomeView.swift */; };
-		ECECAC042D2729D400021895 /* MarkGymLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABF32D2729D400021895 /* MarkGymLocationView.swift */; };
 		ECECAC062D2729D400021895 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECABF52D2729D400021895 /* SettingsView.swift */; };
-		ECECAC0E2D27399F00021895 /* GymLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECAC0D2D27399700021895 /* GymLocationViewModel.swift */; };
-		ECECAC102D2739E500021895 /* MapViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECAC0F2D2739CA00021895 /* MapViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EC1C48462D283D1300ACF22C /* MapInteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionManager.swift; sourceTree = "<group>"; };
+		EC4963242D2EA1E000C11694 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		EC4963552D2EB23F00C11694 /* GymLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymLocationService.swift; sourceTree = "<group>"; };
 		ECECABAC2D26A58000021895 /* GoGym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECECABE62D2729D400021895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ECECABE82D2729D400021895 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
-		ECECABE92D2729D400021895 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		ECECABED2D2729D400021895 /* GoGymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoGymApp.swift; sourceTree = "<group>"; };
 		ECECABEF2D2729D400021895 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		ECECABF32D2729D400021895 /* MarkGymLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkGymLocationView.swift; sourceTree = "<group>"; };
 		ECECABF52D2729D400021895 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		ECECAC0D2D27399700021895 /* GymLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymLocationViewModel.swift; sourceTree = "<group>"; };
-		ECECAC0F2D2739CA00021895 /* MapViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -49,6 +41,36 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		EC49632A2D2EA58400C11694 /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EC49632E2D2EA60000C11694 /* ViewModels */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EC49632F2D2EA62500C11694 /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC4963302D2EA65B00C11694 /* Services */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EC4963512D2EB1F700C11694 /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC4963572D2EB26C00C11694 /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Views;
+			sourceTree = "<group>";
+		};
 		ECECABAE2D26A58000021895 /* GoGym */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -97,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				ECECABED2D2729D400021895 /* GoGymApp.swift */,
+				EC4963242D2EA1E000C11694 /* ErrorHandling.swift */,
 				ECECABE62D2729D400021895 /* AppDelegate.swift */,
 			);
 			path = App;
@@ -105,21 +128,23 @@
 		ECECAC082D272BBE00021895 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				ECECAC0C2D272C0600021895 /* MarkGymLocation */,
+				ECECAC0C2D272C0600021895 /* GymLocation */,
 				ECECAC0B2D272BF400021895 /* Settings */,
 				ECECAC0A2D272BE100021895 /* Home */,
-				ECECAC092D272BC900021895 /* Auth */,
+				ECECAC092D272BC900021895 /* Authentication */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		ECECAC092D272BC900021895 /* Auth */ = {
+		ECECAC092D272BC900021895 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				ECECABE82D2729D400021895 /* AuthState.swift */,
-				ECECABE92D2729D400021895 /* AuthView.swift */,
+				EC4963302D2EA65B00C11694 /* Services */,
+				EC49632F2D2EA62500C11694 /* Models */,
+				EC49632E2D2EA60000C11694 /* ViewModels */,
+				EC49632A2D2EA58400C11694 /* Views */,
 			);
-			path = Auth;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		ECECAC0A2D272BE100021895 /* Home */ = {
@@ -138,15 +163,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		ECECAC0C2D272C0600021895 /* MarkGymLocation */ = {
+		ECECAC0C2D272C0600021895 /* GymLocation */ = {
 			isa = PBXGroup;
 			children = (
-				ECECABF32D2729D400021895 /* MarkGymLocationView.swift */,
-				ECECAC0D2D27399700021895 /* GymLocationViewModel.swift */,
-				ECECAC0F2D2739CA00021895 /* MapViewComponent.swift */,
-				EC1C48462D283D1300ACF22C /* MapInteractionManager.swift */,
+				EC4963572D2EB26C00C11694 /* Views */,
+				EC4963552D2EB23F00C11694 /* GymLocationService.swift */,
+				EC4963512D2EB1F700C11694 /* Models */,
 			);
-			path = MarkGymLocation;
+			path = GymLocation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +189,12 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				EC49632A2D2EA58400C11694 /* Views */,
+				EC49632E2D2EA60000C11694 /* ViewModels */,
+				EC49632F2D2EA62500C11694 /* Models */,
+				EC4963302D2EA65B00C11694 /* Services */,
+				EC4963512D2EB1F700C11694 /* Models */,
+				EC4963572D2EB26C00C11694 /* Views */,
 				ECECABAE2D26A58000021895 /* GoGym */,
 			);
 			name = GoGym;
@@ -234,14 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECECABFB2D2729D400021895 /* AppDelegate.swift in Sources */,
-				ECECABFC2D2729D400021895 /* AuthState.swift in Sources */,
-				ECECABFD2D2729D400021895 /* AuthView.swift in Sources */,
-				ECECAC102D2739E500021895 /* MapViewComponent.swift in Sources */,
+				EC4963252D2EA1E500C11694 /* ErrorHandling.swift in Sources */,
+				EC4963562D2EB24800C11694 /* GymLocationService.swift in Sources */,
 				ECECAC002D2729D400021895 /* GoGymApp.swift in Sources */,
-				EC1C48472D283D1B00ACF22C /* MapInteractionManager.swift in Sources */,
 				ECECAC012D2729D400021895 /* HomeView.swift in Sources */,
-				ECECAC0E2D27399F00021895 /* GymLocationViewModel.swift in Sources */,
-				ECECAC042D2729D400021895 /* MarkGymLocationView.swift in Sources */,
 				ECECAC062D2729D400021895 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
