@@ -1,14 +1,29 @@
-// NearbyGymsListView.swift
 import SwiftUI
+import CoreLocation
+import MapKit
 
 struct NearbyGymsListView: View {
-    @ObservedObject var gymService: GymLocationService
+    @StateObject private var gymService: GymLocationService
     @EnvironmentObject private var errorHandler: AppErrorHandler
     @Binding var selectedGym: GymDetails?
     @Binding var isPresented: Bool
+    @State private var viewLoadTime = Date()
+    
+    init(selectedGym: Binding<GymDetails?>, isPresented: Binding<Bool>) {
+        _selectedGym = selectedGym
+        _isPresented = isPresented
+        _gymService = StateObject(wrappedValue: GymLocationService(errorHandler: AppErrorHandler.shared))
+    }
     
     @State private var nearbyGyms: [NearbyGym] = []
     @State private var isLoading = false
+    @State private var hasRequestedLocation = false
+    @State private var lastKnownLocation: CLLocationCoordinate2D?
+    
+    private func logDebug(_ message: String) {
+        guard GymLocationService.isDebugEnabled else { return }
+        print("📱 NearbyGymsView: \(message)")
+    }
     
     var body: some View {
         NavigationView {
@@ -29,8 +44,27 @@ struct NearbyGymsListView: View {
                     }
                 }
             }
+            .onAppear {
+                logDebug("View appeared")
+                setupLocationAndSearch()
+            }
+            .onChange(of: gymService.authorizationStatus) { newStatus in
+                logDebug("Authorization status changed to: \(newStatus.rawValue)")
+                handleAuthorizationChange(status: newStatus)
+            }
             .task {
-                await loadNearbyGyms()
+                logDebug("Starting location updates task")
+                for await location in gymService.locationUpdates() {
+                    logDebug("Received location update: \(location.latitude), \(location.longitude)")
+                    if lastKnownLocation?.latitude != location.latitude ||
+                       lastKnownLocation?.longitude != location.longitude {
+                        lastKnownLocation = location
+                        logDebug("Location changed significantly, reloading gyms")
+                        await loadNearbyGyms()
+                    } else {
+                        logDebug("Location hasn't changed significantly, skipping reload")
+                    }
+                }
             }
         }
     }
@@ -41,12 +75,22 @@ struct NearbyGymsListView: View {
                 .font(.system(size: 50))
                 .foregroundColor(.secondary)
             
-            Text("No Gyms Found Nearby")
-                .font(.headline)
-            
-            Button("Try Again") {
-                Task {
-                    await loadNearbyGyms()
+            if gymService.authorizationStatus == .denied {
+                Text("Location Access Required")
+                    .font(.headline)
+                Text("Please enable location services in Settings to find nearby gyms")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.secondary)
+                    .padding()
+            } else {
+                Text("No Gyms Found Nearby")
+                    .font(.headline)
+                
+                Button("Try Again") {
+                    Task {
+                        await loadNearbyGyms()
+                    }
                 }
             }
         }
@@ -75,29 +119,89 @@ struct NearbyGymsListView: View {
         }
     }
     
+    private func setupLocationAndSearch() {
+        viewLoadTime = Date()
+        logDebug("⏱️ View load time: \(viewLoadTime)")
+        logDebug("⏱️ Setting up location - hasRequestedLocation: \(hasRequestedLocation)")
+        logDebug("⏱️ Current authorization status: \(gymService.authorizationStatus.rawValue)")
+        
+        if !hasRequestedLocation {
+            hasRequestedLocation = true
+            logDebug("⏱️ Starting location updates")
+            gymService.startLocationUpdates()
+            gymService.requestLocationPermission()
+            
+            if let location = gymService.currentLocation {
+                logDebug("⏱️ Initial location already available")
+                lastKnownLocation = location
+                Task {
+                    await loadNearbyGyms()
+                }
+            } else {
+                logDebug("⏱️ No initial location available - waiting for updates")
+            }
+        } else {
+            logDebug("⏱️ Location already requested - skipping setup")
+        }
+    }
+
+    
+    private func handleAuthorizationChange(status: CLAuthorizationStatus) {
+        logDebug("Handling authorization change: \(status.rawValue)")
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            if let location = gymService.currentLocation {
+                logDebug("Location available after authorization: \(location.latitude), \(location.longitude)")
+                lastKnownLocation = location
+                Task {
+                    await loadNearbyGyms()
+                }
+            } else {
+                logDebug("No location available after authorization change")
+            }
+        case .denied, .restricted:
+            logDebug("Location access denied/restricted")
+            nearbyGyms = []
+            isLoading = false
+        default:
+            logDebug("Other authorization status: \(status.rawValue)")
+            break
+        }
+    }
+    
     private func loadNearbyGyms() async {
+        guard !isLoading else {
+            logDebug("Skipping loadNearbyGyms - already loading")
+            return
+        }
+        
+        logDebug("Starting to load nearby gyms")
         isLoading = true
         do {
             nearbyGyms = try await gymService.fetchNearbyGyms()
+            logDebug("Successfully loaded \(nearbyGyms.count) gyms")
         } catch {
+            logDebug("Failed to load gyms: \(error.localizedDescription)")
             errorHandler.handle(error)
+            nearbyGyms = []
         }
         isLoading = false
     }
     
     private func selectGym(_ gym: NearbyGym) {
-            selectedGym = GymDetails(
-                id: gym.id,
-                name: gym.name,
-                type: .fitness, // default; adjust as needed
-                latitude: gym.coordinate.latitude,
-                longitude: gym.coordinate.longitude,
-                address: gym.address,
-                geofenceRadius: 100,
-                visits: []  // Initialize with empty visits array
-            )
-            isPresented = false
-        }
+        logDebug("Selecting gym: \(gym.name)")
+        selectedGym = GymDetails(
+            id: gym.id,
+            name: gym.name,
+            type: gym.type ?? .fitness,
+            latitude: gym.coordinate.latitude,
+            longitude: gym.coordinate.longitude,
+            address: gym.address,
+            geofenceRadius: 100,
+            visits: []
+        )
+        isPresented = false
+    }
     
     private func formatDistance(_ distance: Double) -> String {
         if distance < 1000 {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC4963252D2EA1E500C11694 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4963242D2EA1E000C11694 /* ErrorHandling.swift */; };
 		EC4963562D2EB24800C11694 /* GymLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4963552D2EB23F00C11694 /* GymLocationService.swift */; };
+		EC4963EB2D2FDD3B00C11694 /* HomeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4963EA2D2FDD2500C11694 /* HomeComponents.swift */; };
 		ECECABC52D26A5AF00021895 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC42D26A5AF00021895 /* GoogleSignIn */; };
 		ECECABC72D26A5AF00021895 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC62D26A5AF00021895 /* GoogleSignInSwift */; };
 		ECECABCA2D26A5F800021895 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC92D26A5F800021895 /* FirebaseAuth */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		EC4963242D2EA1E000C11694 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		EC4963552D2EB23F00C11694 /* GymLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymLocationService.swift; sourceTree = "<group>"; };
+		EC4963EA2D2FDD2500C11694 /* HomeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponents.swift; sourceTree = "<group>"; };
 		ECECABAC2D26A58000021895 /* GoGym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECECABE62D2729D400021895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECECABED2D2729D400021895 /* GoGymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoGymApp.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		ECECAC0A2D272BE100021895 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EC4963EA2D2FDD2500C11694 /* HomeComponents.swift */,
 				ECECABEF2D2729D400021895 /* HomeView.swift */,
 			);
 			path = Home;
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC4963EB2D2FDD3B00C11694 /* HomeComponents.swift in Sources */,
 				ECECABFB2D2729D400021895 /* AppDelegate.swift in Sources */,
 				EC4963252D2EA1E500C11694 /* ErrorHandling.swift in Sources */,
 				EC4963562D2EB24800C11694 /* GymLocationService.swift in Sources */,

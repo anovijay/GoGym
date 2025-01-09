@@ -19,11 +19,6 @@ struct MainScreen: View {
                             Label("Home", systemImage: "house")
                         }
 
-                    MarkGymLocationView()
-                        .tabItem {
-                            Label("Mark Gym", systemImage: "mappin.and.ellipse")
-                        }
-
                     Text("Stats") // Will be replaced with StatsView
                         .tabItem {
                             Label("Stats", systemImage: "chart.bar")
