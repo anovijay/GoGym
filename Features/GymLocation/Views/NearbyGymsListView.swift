@@ -7,18 +7,17 @@ struct NearbyGymsListView: View {
     @EnvironmentObject private var errorHandler: AppErrorHandler
     @Binding var selectedGym: GymDetails?
     @Binding var isPresented: Bool
+    @State private var nearbyGyms: [NearbyGym] = []
+    @State private var isLoading = false
+    @State private var hasRequestedLocation = false
     @State private var viewLoadTime = Date()
+    @State private var lastKnownLocation: CLLocationCoordinate2D?
     
     init(selectedGym: Binding<GymDetails?>, isPresented: Binding<Bool>) {
         _selectedGym = selectedGym
         _isPresented = isPresented
         _gymService = StateObject(wrappedValue: GymLocationService(errorHandler: AppErrorHandler.shared))
     }
-    
-    @State private var nearbyGyms: [NearbyGym] = []
-    @State private var isLoading = false
-    @State private var hasRequestedLocation = false
-    @State private var lastKnownLocation: CLLocationCoordinate2D?
     
     private func logDebug(_ message: String) {
         guard GymLocationService.isDebugEnabled else { return }
@@ -52,17 +51,14 @@ struct NearbyGymsListView: View {
                 logDebug("Authorization status changed to: \(newStatus.rawValue)")
                 handleAuthorizationChange(status: newStatus)
             }
-            .task {
-                logDebug("Starting location updates task")
-                for await location in gymService.locationUpdates() {
-                    logDebug("Received location update: \(location.latitude), \(location.longitude)")
-                    if lastKnownLocation?.latitude != location.latitude ||
-                       lastKnownLocation?.longitude != location.longitude {
-                        lastKnownLocation = location
-                        logDebug("Location changed significantly, reloading gyms")
+            .onReceive(gymService.$currentLocation) { newLocation in
+                if let location = newLocation,
+                   (lastKnownLocation?.latitude != location.latitude ||
+                    lastKnownLocation?.longitude != location.longitude) {
+                    logDebug("Location updated: \(location.latitude), \(location.longitude)")
+                    lastKnownLocation = location
+                    Task {
                         await loadNearbyGyms()
-                    } else {
-                        logDebug("Location hasn't changed significantly, skipping reload")
                     }
                 }
             }
@@ -122,8 +118,6 @@ struct NearbyGymsListView: View {
     private func setupLocationAndSearch() {
         viewLoadTime = Date()
         logDebug("⏱️ View load time: \(viewLoadTime)")
-        logDebug("⏱️ Setting up location - hasRequestedLocation: \(hasRequestedLocation)")
-        logDebug("⏱️ Current authorization status: \(gymService.authorizationStatus.rawValue)")
         
         if !hasRequestedLocation {
             hasRequestedLocation = true
@@ -133,7 +127,6 @@ struct NearbyGymsListView: View {
             
             if let location = gymService.currentLocation {
                 logDebug("⏱️ Initial location already available")
-                lastKnownLocation = location
                 Task {
                     await loadNearbyGyms()
                 }
@@ -144,7 +137,6 @@ struct NearbyGymsListView: View {
             logDebug("⏱️ Location already requested - skipping setup")
         }
     }
-
     
     private func handleAuthorizationChange(status: CLAuthorizationStatus) {
         logDebug("Handling authorization change: \(status.rawValue)")
@@ -152,7 +144,6 @@ struct NearbyGymsListView: View {
         case .authorizedWhenInUse, .authorizedAlways:
             if let location = gymService.currentLocation {
                 logDebug("Location available after authorization: \(location.latitude), \(location.longitude)")
-                lastKnownLocation = location
                 Task {
                     await loadNearbyGyms()
                 }
@@ -177,6 +168,7 @@ struct NearbyGymsListView: View {
         
         logDebug("Starting to load nearby gyms")
         isLoading = true
+        
         do {
             nearbyGyms = try await gymService.fetchNearbyGyms()
             logDebug("Successfully loaded \(nearbyGyms.count) gyms")
@@ -185,6 +177,7 @@ struct NearbyGymsListView: View {
             errorHandler.handle(error)
             nearbyGyms = []
         }
+        
         isLoading = false
     }
     
@@ -197,7 +190,7 @@ struct NearbyGymsListView: View {
             latitude: gym.coordinate.latitude,
             longitude: gym.coordinate.longitude,
             address: gym.address,
-            geofenceRadius: 100,
+            geofenceRadius: GymVisitTrackingService.Config.defaultGeofenceRadius,
             visits: []
         )
         isPresented = false

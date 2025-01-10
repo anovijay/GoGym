@@ -2,35 +2,38 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <!-- Existing URL Schemes for Google Sign-In -->
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>com.googleusercontent.apps.788957881957-rir9o32njmfp0pldr6hv57cc6cr3jb48</string>
-            </array>
-        </dict>
-    </array>
-
-    <!-- Required for Google Sign-In -->
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>google</string>
-        <string>com.google</string>
-    </array>
-
-    <!-- Optional but recommended: App transport security for better networking -->
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
-
-    <!-- Required for requesting location permissions -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.788957881957-rir9o32njmfp0pldr6hv57cc6cr3jb48</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>google</string>
+		<string>com.google</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>We need your location to mark your gym accurately.</string>
+    <string>We need your location to find gyms near you and track your visits.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>We need your location to automatically track your gym visits, even when the app is in the background.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>We need your location to automatically track your gym visits, even when the app is in the background.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+       <string>location</string>
+       <string>fetch</string>
+       <string>processing</string>
+    </array>
 </dict>
 </plist>

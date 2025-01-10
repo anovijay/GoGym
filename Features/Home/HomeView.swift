@@ -1,8 +1,11 @@
+// HomeView.swift
 import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var authState: AuthStateManager
     @EnvironmentObject private var errorHandler: AppErrorHandler
+    @StateObject private var visitTracker = GymVisitTrackingService()
+    
     @State private var savedGyms: [GymDetails] = []
     @State private var errorMessage: String?
     @State private var showingGymSheet = false
@@ -55,26 +58,42 @@ struct HomeView: View {
             } message: { gym in
                 Text("Are you sure you want to remove \(gym.name)?")
             }
+            .onAppear {
+                loadGyms()
+                visitTracker.requestPermissions()
+                savedGyms.forEach { visitTracker.startMonitoring($0) }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .gymLocationUpdated)) { _ in
+                        loadGyms()  // This will reload gyms when notification is received
+                    }
+            .onReceive(NotificationCenter.default.publisher(for: .gymVisitStarted)) { notification in
+                if let visit = notification.userInfo?["visit"] as? GymVisit {
+                    VisitStorageManager.saveVisit(visit)
+                    loadGyms()
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .gymVisitEnded)) { notification in
+                if let visit = notification.userInfo?["visit"] as? GymVisit {
+                    VisitStorageManager.updateVisit(visit)
+                    loadGyms()
+                }
+            }
             .refreshable {
                 loadGyms()
             }
             .onAppear {
-                loadGyms()
-                NotificationCenter.default.addObserver(
-                    forName: .gymLocationUpdated,
-                    object: nil,
-                    queue: .main
-                ) { _ in
-                    loadGyms()
-                }
-            }
-            .onDisappear {
-                NotificationCenter.default.removeObserver(
-                    self,
-                    name: .gymLocationUpdated,
-                    object: nil
-                )
-            }
+                        loadGyms()
+                        visitTracker.requestPermissions()
+                        savedGyms.forEach { visitTracker.startMonitoring($0) }
+                    }
+                    // Add these handlers
+                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                        visitTracker.restartMonitoring()
+                    }
+                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
+                        // Ensure we have background location permission
+                        visitTracker.requestPermissions()
+                    }
         }
     }
     
@@ -86,6 +105,7 @@ struct HomeView: View {
     private func deleteGym(_ gym: GymDetails) {
         let service = GymLocationService(errorHandler: errorHandler)
         service.deleteGymLocation(gym)
+        visitTracker.stopMonitoring(gym)
         loadGyms()
     }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC4963252D2EA1E500C11694 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4963242D2EA1E000C11694 /* ErrorHandling.swift */; };
-		EC4963562D2EB24800C11694 /* GymLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4963552D2EB23F00C11694 /* GymLocationService.swift */; };
 		EC4963EB2D2FDD3B00C11694 /* HomeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4963EA2D2FDD2500C11694 /* HomeComponents.swift */; };
 		ECECABC52D26A5AF00021895 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC42D26A5AF00021895 /* GoogleSignIn */; };
 		ECECABC72D26A5AF00021895 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ECECABC62D26A5AF00021895 /* GoogleSignInSwift */; };
@@ -23,7 +22,6 @@
 
 /* Begin PBXFileReference section */
 		EC4963242D2EA1E000C11694 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
-		EC4963552D2EB23F00C11694 /* GymLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymLocationService.swift; sourceTree = "<group>"; };
 		EC4963EA2D2FDD2500C11694 /* HomeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponents.swift; sourceTree = "<group>"; };
 		ECECABAC2D26A58000021895 /* GoGym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECECABE62D2729D400021895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +69,11 @@
 		EC4963572D2EB26C00C11694 /* Views */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EC49643E2D311F4E00C11694 /* Services */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		ECECABAE2D26A58000021895 /* GoGym */ = {
@@ -170,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				EC4963572D2EB26C00C11694 /* Views */,
-				EC4963552D2EB23F00C11694 /* GymLocationService.swift */,
+				EC49643E2D311F4E00C11694 /* Services */,
 				EC4963512D2EB1F700C11694 /* Models */,
 			);
 			path = GymLocation;
@@ -198,6 +201,7 @@
 				EC4963302D2EA65B00C11694 /* Services */,
 				EC4963512D2EB1F700C11694 /* Models */,
 				EC4963572D2EB26C00C11694 /* Views */,
+				EC49643E2D311F4E00C11694 /* Services */,
 				ECECABAE2D26A58000021895 /* GoGym */,
 			);
 			name = GoGym;
@@ -269,7 +273,6 @@
 				EC4963EB2D2FDD3B00C11694 /* HomeComponents.swift in Sources */,
 				ECECABFB2D2729D400021895 /* AppDelegate.swift in Sources */,
 				EC4963252D2EA1E500C11694 /* ErrorHandling.swift in Sources */,
-				EC4963562D2EB24800C11694 /* GymLocationService.swift in Sources */,
 				ECECAC002D2729D400021895 /* GoGymApp.swift in Sources */,
 				ECECAC012D2729D400021895 /* HomeView.swift in Sources */,
 				ECECAC062D2729D400021895 /* SettingsView.swift in Sources */,
@@ -407,6 +410,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoGym/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to track your gym visits";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to track your gym visits even when the app is in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to mark your gym accurately.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -447,6 +453,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoGym/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to track your gym visits";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to track your gym visits even when the app is in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to mark your gym accurately.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
