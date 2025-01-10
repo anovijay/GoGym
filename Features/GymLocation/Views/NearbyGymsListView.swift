@@ -11,7 +11,6 @@ struct NearbyGymsListView: View {
     @State private var isLoading = false
     @State private var hasRequestedLocation = false
     @State private var viewLoadTime = Date()
-    @State private var lastKnownLocation: CLLocationCoordinate2D?
     
     init(selectedGym: Binding<GymDetails?>, isPresented: Binding<Bool>) {
         _selectedGym = selectedGym
@@ -52,11 +51,8 @@ struct NearbyGymsListView: View {
                 handleAuthorizationChange(status: newStatus)
             }
             .onReceive(gymService.$currentLocation) { newLocation in
-                if let location = newLocation,
-                   (lastKnownLocation?.latitude != location.latitude ||
-                    lastKnownLocation?.longitude != location.longitude) {
+                if let location = newLocation {
                     logDebug("Location updated: \(location.latitude), \(location.longitude)")
-                    lastKnownLocation = location
                     Task {
                         await loadNearbyGyms()
                     }
@@ -79,6 +75,15 @@ struct NearbyGymsListView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
                     .padding()
+            } else if gymService.currentLocation == nil {
+                Text("Waiting for Location")
+                    .font(.headline)
+                Text("Please wait while we get your location")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.secondary)
+                    .padding()
+                ProgressView()
             } else {
                 Text("No Gyms Found Nearby")
                     .font(.headline)
